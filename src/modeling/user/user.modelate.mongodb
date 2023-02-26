@@ -1,0 +1,56 @@
+use("tecno_crop");
+
+db.createCollection('users', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['_id', 'first_name', 'nickname', 'age', 'password', 'email', 'phone_number', 'role'],
+            additionalProperties: false,
+            properties: {
+                _id: {
+                    bsonType: 'objectId'
+                },
+                first_name: {
+                    bsonType: 'string'
+                },
+                last_name: {
+                    bsonType: 'string'
+                },
+                nickname: {
+                    bsonType: 'string'
+                },
+                age: {
+                    bsonType: 'int',
+                    minimum: 18,
+                    maximum: 120,
+                },
+                password: {
+                    bsonType: 'string',
+                    pattern: '^[A-Za-z0-9]{8,}$'
+                },
+                email: {
+                    bsonType: 'string'
+                },
+                image: {
+                    bsonType: 'string'
+                },
+                phone_number: {
+                    bsonType: 'string',
+                    pattern: '^[0-9]{10}$'
+                },
+                role: {
+                    enum: ['ADMIN', 'CUSTOMER']
+                },
+                favourites: {
+                    bsonType: 'array',
+                    minItems: 1,
+                    uniqueItems: true,                    
+                    items: {
+                        bsonType: 'objectId',
+
+                    }
+                },
+            }
+        }
+    }
+})

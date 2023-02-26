@@ -1,0 +1,14 @@
+use("tecno_crop");
+
+db.users.insertOne({
+
+    first_name: 'Juan',
+    last_name: 'Cabana',
+    nickname: 'Juanca',
+    age: 19,
+    password: 'Password123',
+    email: 'juand.cabanat@unac.edu.co',
+    image: 'Image1',
+    phone_number: '3145685747',
+    role: 'ADMIN'
+})
