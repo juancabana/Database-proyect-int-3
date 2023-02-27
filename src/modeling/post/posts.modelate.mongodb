@@ -5,10 +5,13 @@ db.createCollection('posts', {
         $jsonSchema: {
 
         bsonType: 'object',
-        required: ['_id', 'description', 'tittle', 'images', 'likes', 'address', 'category', 'mass_unit', 'ammount'],
+        required: ['_id', 'id_user', 'description', 'tittle', 'images', 'likes', 'address', 'category', 'mass_unit', 'ammount'],
         additionalProperties: false,
         properties: {
             _id: {
+                bsonType: 'objectId'
+            },
+            id_user: {
                 bsonType: 'objectId'
             },
             description: {

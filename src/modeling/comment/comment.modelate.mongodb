@@ -4,14 +4,20 @@ db.createCollection('comments', {
     validator: {
         $jsonSchema: {
             bsonType: 'object',
-            required: ['_id', 'content'],
+            required: ['_id', 'id_post', 'content', 'creation_date'],
             additionalProperties: false,
             properties: {
             _id: {
                 bsonType: 'objectId'
             },
+            id_post: {
+                bsonType: 'objectId'
+            },
             content: {
                 bsonType: 'string'
+            }
+            creation_date: {
+                bsonType: 'date'
             }
         }
     }

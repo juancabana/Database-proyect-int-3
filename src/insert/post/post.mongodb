@@ -1,6 +1,7 @@
 use("tecno_crop");
 
 db.posts.insertOne({
+    id_user: ObjectId('63fccb8183625aceecad361f'),
     description: 'Esta es la cosecha de arroz',
     tittle: 'Arroz',
     images: ['image1', 'image2'],
