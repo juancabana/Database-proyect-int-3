@@ -1,0 +1,15 @@
+use("tecno_crop");
+
+// Obtiene el dueño de una cosecha en especifico
+db.posts.aggregate([{
+    $match: {
+      _id: ObjectId('63fccba83bbaee7392311269')
+    }
+},{
+    $lookup: {
+      from: 'users',
+      localField: 'id_user',
+      foreignField: '_id',
+      as: 'owner'
+    }
+}])

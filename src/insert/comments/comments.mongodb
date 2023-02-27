@@ -2,7 +2,7 @@ use("tecno_crop");
 
 db.comments.insertOne({
     id_post: ObjectId('63fccba83bbaee7392311269'),
-    content: 'Hola, soy el primer comentario de esta app',
+    content: 'Hola, soy el primer comentario de esta app'
     creation_date: '02-27-2023'
 }
 )

@@ -1,0 +1,15 @@
+use("tecno_crop");
+
+// Obtiene el post al que pertenece este comentario
+db.comments.aggregate([{
+    $match: {
+      _id: ObjectId('63fccc6572c56071c81609f7')
+    }
+},{
+    $lookup: {
+      from: 'posts',
+      localField: 'id_post',
+      foreignField: '_id',
+      as: 'post'
+    }
+}])
