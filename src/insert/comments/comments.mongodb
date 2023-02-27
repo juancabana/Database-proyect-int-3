@@ -1,0 +1,6 @@
+use("tecno_crop");
+
+db.comments.insertOne({
+    content: 'Este es un comentario'
+}
+)

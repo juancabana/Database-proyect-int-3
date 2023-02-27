@@ -1,0 +1,19 @@
+use("tecno_crop");
+
+db.createCollection('comments', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['_id', 'content'],
+            additionalProperties: false,
+            properties: {
+            _id: {
+                bsonType: 'objectId'
+            },
+            content: {
+                bsonType: 'string'
+            }
+        }
+    }
+}
+})
