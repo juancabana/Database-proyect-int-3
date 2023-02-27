@@ -1,0 +1,16 @@
+use("tecno_crop");
+
+db.posts.insertOne({
+    description: 'Esta es la cosecha de arroz',
+    tittle: 'Arroz',
+    images: ['image1', 'image2'],
+    likes: 0,
+    address: 'Address uno',
+    category: 'Cereals',
+    mass_unit: {                
+        key: 'Kg',
+        title: 'Kilogramo',
+    },
+    ammount: 20.5
+}
+)

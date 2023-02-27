@@ -1,0 +1,55 @@
+use("tecno_crop");
+
+db.createCollection('posts', {
+    validator: {
+        $jsonSchema: {
+
+        bsonType: 'object',
+        required: ['_id', 'description', 'tittle', 'images', 'likes', 'address', 'category', 'mass_unit', 'ammount'],
+        additionalProperties: false,
+        properties: {
+            _id: {
+                bsonType: 'objectId'
+            },
+            description: {
+                bsonType: 'string'
+            },
+            tittle: {
+                bsonType: 'string'
+            },
+            images: {
+                bsonType: 'array',
+                minItems: 1,
+                uniqueItems: true,
+                items: {
+                    bsonType: 'string'
+                }
+            },
+            likes: {
+                bsonType: 'int'
+            },
+            address: {
+                bsonType: 'string'
+            },
+            category: {
+                enum: ['Cereals', 'Legumes', 'Oilseeds', 'Vegetables', 'Fruit trees', 'Ornamentals', 'Roots and tubers'],
+            },
+            mass_unit: {
+                bsonType: 'object',
+                properties: {
+                    key: {
+                        enum: ['Un', 'g', 'Kg', 'T']
+                    },
+                    title: {
+                        enum: ['Unidad', 'Gramo', 'Kilogramo', 'Tonelada'],
+
+                    }
+                }
+            },
+            ammount: {
+                bsonType: 'double'
+            }
+        }
+        }
+    }
+})
